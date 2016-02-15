@@ -1,0 +1,59 @@
+//  Reverse
+//
+//  Created by David Martinez on 2/14/16.
+//  Copyright © 2016 Joenteny David Martinez Gutierrez. All rights reserved.
+//
+//  Description:
+//
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <fstream>
+
+using namespace std;
+
+//  double calculatemph(double, double);    // calculatemph function prototype
+int countCharacters(char* array);
+void reverseArray(char* array);
+
+int main()
+{
+    ifstream infile("data.txt");
+    char exampleArray [100] = infile;
+    
+    string line;
+    while (getline(infile, line))
+    {
+        istringstream iss(line);
+        int a, b;
+        if (!(iss >> a >> b)) { break; }
+        
+        //
+    }
+    
+    
+    int numOfCharacters = countCharacters(exampleArray);    // call countCharacters
+    
+    cout << numOfCharacters << endl;
+    
+    reverseArray(*(&exampleArray)); //call reverseArray
+    
+    // for loop that print array
+    for (int i = 1; i <= numOfCharacters; i++)
+    {
+        cout << exampleArray[i] << "\n";
+    }
+    
+    return 0;
+}   // End of function main ()
+
+int countCharacters(char* array)
+{
+    return string(array).length();
+}   // End of countCharacters ()
+
+void reverseArray(char* (&array))
+{
+    reverse(array, array + strlen(array));
+}   // End of function reverseArray ()
